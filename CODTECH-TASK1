@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class BasicCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Basic Calculator ===");
+
+        // Input numbers
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        // Display operation options
+        System.out.println("\nChoose an operation:");
+        System.out.println("1. Addition (+)");
+        System.out.println("2. Subtraction (-)");
+        System.out.println("3. Multiplication (*)");
+        System.out.println("4. Division (/)");
+        System.out.print("Enter your choice (1-4): ");
+        int choice = scanner.nextInt();
+
+        double result = 0;
+        boolean valid = true;
+
+        // Perform the operation based on the user's choice
+        switch (choice) {
+            case 1 -> {
+                result = num1 + num2;
+                System.out.println("Operation: Addition");
+            }
+            case 2 -> {
+                result = num1 - num2;
+                System.out.println("Operation: Subtraction");
+            }
+            case 3 -> {
+                result = num1 * num2;
+                System.out.println("Operation: Multiplication");
+            }
+            case 4 -> {
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Operation: Division");
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    valid = false;
+                }
+            }
+            default -> {
+                System.out.println("Invalid choice. Please select a number between 1 and 4.");
+                valid = false;
+            }
+        }
+
+        // Display the result if the operation was valid
+        if (valid) {
+            System.out.println("Result: " + result);
+        }
+
+        System.out.println("Thank you for using the Basic Calculator!");
+    }
+}
